@@ -1,32 +1,25 @@
 import { Component, Fragment } from 'react'
 import Link from 'next/link'
 
-import redirect from '../lib/redirect'
-import checkCandidateLoggedIn from '../lib/auth/checkCandidateLoggedIn'
+import redirectIfUserLoggedIn from '../hoc/redirectIfUserLoggedIn';
 
-import CandidateSigninBox from '../components/CandidateSigninBox'
+import UserSigninBox from '../components/UserSigninBox'
+import GoogleButton from '../components/socialAuth/GoogleButton'
 
-export default class Signin extends Component {
-  static async getInitialProps (context) {
-    const { isAuthenticated } = await checkCandidateLoggedIn(context.apolloClient)
-
-    if (isAuthenticated) {
-      // Already signed in? No need to continue.
-      // Throw them back to the main page
-      redirect(context, '/')
-    }
-
-    return {}
-  }
-
+class Signin extends Component {
   render () {
     return (
       <Fragment>
-        {/* CandidateSigninBox handles all login logic. */}
-        <CandidateSigninBox />
+        {/* UserSigninBox handles all login logic. */}
+        <UserSigninBox />
+        <hr />
+        Login With
+        <GoogleButton />
         <hr />
         New? <Link prefetch href='/create-account'><a>Create account</a></Link>
       </Fragment>
     )
   }
 };
+
+export default redirectIfUserLoggedIn(Signin)

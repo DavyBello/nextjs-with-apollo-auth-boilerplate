@@ -2,9 +2,9 @@ import { IndexPageContext } from '../contexts/pages/indexPage'
 
 export default props => (
     <IndexPageContext>{
-        ({viewerCandidate: { candidate }}) => (
+        ({viewer: { me }}) => (
             <div>
-              {candidate.name}
+                {me.name}
             </div>
         )
     }</IndexPageContext>

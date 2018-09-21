@@ -1,15 +1,17 @@
 import { Component } from 'react';
-import { IndexPageProvider } from '../contexts/pages/indexPage';
 import { ApolloConsumer } from 'react-apollo'
-import requireCandidateLoggedIn from '../hoc/requireCandidateLoggedIn';
+
 import signout from '../lib/auth/signout'
-import CandidateDetailsSection from '../components/CandidateDetailsSection';
+import requireUserLoggedIn from '../hoc/requireUserLoggedIn';
+
+import { IndexPageProvider } from '../contexts/pages/indexPage';
+import UserDetailsSection from '../components/UserDetailsSection';
 
 class Index extends Component {
     render(){
         return <div>
             <IndexPageProvider>
-                <CandidateDetailsSection />
+                <UserDetailsSection />
                 <ApolloConsumer>
                   {client => (
                     <button onClick={()=>signout(client)}>Sign out</button>
@@ -20,4 +22,4 @@ class Index extends Component {
     }
 }
 
-export default requireCandidateLoggedIn(Index)
+export default requireUserLoggedIn(Index)

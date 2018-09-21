@@ -18,7 +18,7 @@ This is an extention of the _[with Apollo](https://github.com/zeit/next.js/tree/
 [graph.cool](https://www.graph.cool) can be setup with many different
 [authentication providers](https://www.graph.cool/docs/reference/integrations/overview-seimeish6e/#authentication-providers), the most basic of which is [email-password authentication](https://www.graph.cool/docs/reference/simple-api/user-authentication-eixu9osueb/#email-and-password). Once email-password authentication is enabled for your graph.cool project, you are provided with 2 useful mutations: `createUser` and `signinUser`.
 
-On loading each route, we perform a `user` query to see if the current visitor is logged in (based on a cookie, more on that in a moment). Depending on the query result, and the route, the user may be [redirected](https://github.com/zeit/next.js/blob/master/examples/with-apollo-auth/lib/redirect.js) to a different page.
+On loading each route, we perform a `user` query to see if the current visitor is logged in (based on a cookie, more on that in a moment). Depending on the query result, and the route, the user may be [redirected](https://github.com/zeit/next.js/blob/master/examples/with-apollo-auth/lib/auth/redirect.js) to a different page.
 
 When creating an account, both the `createUser` and `signinUser` mutations are executed on graph.cool, which returns a token that can be used to [authenticate the user for future requests](https://www.graph.cool/docs/reference/auth/authentication-tokens-eip7ahqu5o/). The token is stored in a cookie for easy access (_note: This may have security implications. Please understand XSS and JWT before deploying this to production_).
 

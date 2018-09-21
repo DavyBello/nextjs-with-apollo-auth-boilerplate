@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-import redirect from '../lib/redirect'
-import checkCandidateLoggedIn from '../lib/auth/checkCandidateLoggedIn'
+import redirect from '../lib/auth/redirect'
+import checkUserLoggedIn from '../lib/auth/checkUserLoggedIn'
 
-export default function requireCandidate(Child) {
+export default function redirectUser(Child) {
     class WrappedComponent extends Component {
         static async getInitialProps(context) {
             let ChildProps = {};
@@ -13,11 +13,10 @@ export default function requireCandidate(Child) {
             }
 
             //Validate loggedin user
-            const { isAuthenticated } = await checkCandidateLoggedIn(context.apolloClient)
-
-            if (!isAuthenticated) {
-                // If not signed in, send them somewhere more useful
-                redirect(context, '/signin')
+            const { isAuthenticated } = await checkUserLoggedIn(context.apolloClient)
+            if (isAuthenticated) {
+                // If signed in, send them somewhere more useful
+                redirect(context, '/')
             }
 
             return {
@@ -27,9 +26,7 @@ export default function requireCandidate(Child) {
         }
 
         render() {
-            return (
-                <Child />
-            )
+            return <Child />
         }
     }
 

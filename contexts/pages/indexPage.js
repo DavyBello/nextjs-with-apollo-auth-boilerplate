@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Query } from 'react-apollo'
-import { HOME_VIEWER_CANDIDATE_QUERY } from '../../lib/graphql/queries'
+import { HOME_VIEWER_USER_QUERY } from '../../lib/graphql/queries'
 
 export {
   IndexPageContext,
@@ -12,7 +12,7 @@ const IndexPageContext = React.createContext({
 });
 
 const IndexPageProvider = (props) => (
-  <Query query={HOME_VIEWER_CANDIDATE_QUERY}>
+  <Query query={HOME_VIEWER_USER_QUERY}>
     {({ loading, error, data }) => {
       // NOTE your custom loading animation should go here if you have one
       if (loading)
@@ -39,11 +39,11 @@ const IndexPageProvider = (props) => (
         return <div>There was an error contacting the server</div>
       }
 
-      const { viewerCandidate } = data;
-      // console.log(viewerCandidate);
+      const { viewer } = data;
+      // console.log(viewer);
 
       return (
-        <IndexPageContext.Provider value={{ viewerCandidate }}>
+        <IndexPageContext.Provider value={{ viewer }}>
           {props.children}
         </IndexPageContext.Provider>
       )
