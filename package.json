@@ -16,7 +16,8 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-apollo": "^2.1.9",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-google-login": "^3.2.1"
   },
   "scripts": {
     "dev": "next",
