@@ -1,15 +1,12 @@
 {
   "env": {
     "development": {
-      "plugins": ["inline-dotenv"],
-      "presets": ["next/babel"],
+      "presets": ["next/babel"]
     },
     "production": {
-      "plugins": ["transform-inline-environment-variables"],
-      "presets": ["next/babel"],
+      "presets": ["next/babel"]
     },
     "test": {
-      "plugins": ["inline-dotenv"],
       "presets": [["next/babel", { "preset-env": { "modules": "commonjs" } }]]
     }
   }
