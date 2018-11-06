@@ -1,11 +1,11 @@
 import { IndexPageContext } from '../../contexts/pages/indexPage'
 
-export default props => (
-    <IndexPageContext>{
+export default () => (
+    <IndexPageContext.Consumer>{
         ({viewer: { me }}) => (
             <div>
                 {me.name}
             </div>
         )
-    }</IndexPageContext>
+    }</IndexPageContext.Consumer>
 )
