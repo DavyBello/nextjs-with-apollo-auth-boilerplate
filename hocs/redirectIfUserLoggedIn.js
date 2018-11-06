@@ -26,7 +26,7 @@ export default function redirectUser(Child) {
         }
 
         render() {
-            return <Child />
+            return <Child {...this.props}/>
         }
     }
 

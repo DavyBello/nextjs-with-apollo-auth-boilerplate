@@ -26,7 +26,7 @@ export default function requireUser(Child) {
         }
 
         render() {
-            return <Child />
+            return <Child {...this.props}/>
         }
     }
 
