@@ -2,14 +2,14 @@ import { Component } from 'react';
 import { ApolloConsumer } from 'react-apollo'
 
 import signout from '../lib/auth/signout'
-import requireUserLoggedIn from '../hoc/requireUserLoggedIn';
+import requireUserLoggedIn from '../hocs/requireUserLoggedIn';
 
 import { IndexPageProvider } from '../contexts/pages/indexPage';
 import UserDetailsSection from '../components/UserDetailsSection';
 
 class Index extends Component {
     render(){
-        return <div>
+        return <>
             <IndexPageProvider>
                 <UserDetailsSection />
                 <ApolloConsumer>
@@ -18,7 +18,7 @@ class Index extends Component {
                   )}
                 </ApolloConsumer>
             </IndexPageProvider>
-        </div>
+        </>
     }
 }
 
