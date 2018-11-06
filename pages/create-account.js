@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import redirectIfUserLoggedIn from '../hoc/redirectIfUserLoggedIn';
 
-import UserRegisterBox from '../components/UserRegisterBox'
+import UserRegisterBox from '../components/Auth/UserRegisterBox'
 
 class CreateAccount extends Component {
   render () {

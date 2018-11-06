@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 import redirectIfUserLoggedIn from '../hoc/redirectIfUserLoggedIn';
 
-import UserSigninBox from '../components/UserSigninBox'
-import GoogleButton from '../components/socialAuth/GoogleButton'
+import UserSigninBox from '../components/Auth/UserSigninBox'
+import GoogleButton from '../components/Auth/Social/GoogleButton'
 
 class Signin extends Component {
   render () {

@@ -1,8 +1,8 @@
 import { GoogleLogin } from "react-google-login";
 import { Mutation, withApollo } from "react-apollo";
-import { GOOGLE_AUTH_MUTATION } from "../../lib/graphql/mutations";
-import storeToken from "../../lib/auth/storeToken";
-import redirect from "../../lib/auth/redirect";
+import { GOOGLE_AUTH_MUTATION } from "../../../lib/graphql/mutations";
+import storeToken from "../../../lib/auth/storeToken";
+import redirect from "../../../lib/auth/redirect";
 
 const onFailure = error => {
   alert(error);

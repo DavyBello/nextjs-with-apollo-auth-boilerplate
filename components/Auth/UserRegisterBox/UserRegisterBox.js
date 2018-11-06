@@ -1,14 +1,13 @@
 import { Mutation, withApollo } from 'react-apollo'
-import { LOGIN_USER_MUTATION } from '../lib/graphql/mutations'
-import storeToken from '../lib/auth/storeToken'
-import redirect from '../lib/auth/redirect'
+import { SIGNUP_USER_MUTATION } from '../../../lib/graphql/mutations'
+import storeToken from '../../../lib/auth/storeToken'
+import redirect from '../../../lib/auth/redirect'
 
-// TODO: Find a better name for component.
-const SigninBox = ({ client }) => {
-  let email, password
+const RegisterBox = ({ client }) => {
+  let name, username, email, password
 
   return (
-    <Mutation mutation={LOGIN_USER_MUTATION} onCompleted={({loginUser: {token}}) => {
+    <Mutation mutation={SIGNUP_USER_MUTATION} onCompleted={({userCreateAccount: {token}}) => {
       // Store the token in browser cookies
       storeToken(token);
       // Force a reload of all the current queries now that the user is
@@ -20,28 +19,33 @@ const SigninBox = ({ client }) => {
       // If you want to send error to external service?
       console.log(error)
     }}>
-      {(loginUser, { data, error }) => (
+      {(userCreateAccount, { data, error }) => (
         <form onSubmit={e => {
           e.preventDefault()
           e.stopPropagation()
 
-          loginUser({
+          userCreateAccount({
             variables: {
+              name: name.value,
+              username: username.value,
               email: email.value,
               password: password.value
             }
           })
 
-          email.value = password.value = ''
+          username.value = name.value = email.value = password.value = ''
         }}>
-          {error && <p>No user found with that information.</p>}
+          {error && <p>Issue occured while registering :(</p>}
+          <input name='name' placeholder='Name' ref={node => { name = node }} /><br />
+          <input name='username' placeholder='Username' ref={node => { username = node }} /><br />
           <input name='email' placeholder='Email' ref={node => { email = node }} /><br />
           <input name='password' placeholder='Password' ref={node => { password = node }} type='password' /><br />
-          <button>Sign in</button>
+          <button>Register</button>
         </form>
       )}
+
     </Mutation>
   )
 }
 
-export default withApollo(SigninBox)
+export default withApollo(RegisterBox)

@@ -1,4 +1,4 @@
-import { IndexPageContext } from '../contexts/pages/indexPage'
+import { IndexPageContext } from '../../contexts/pages/indexPage'
 
 export default props => (
     <IndexPageContext>{
