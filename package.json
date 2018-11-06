@@ -24,10 +24,10 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint --fix *.js .",
-    "test": "NODE_ENV=test jest"
+    "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.0",
+    "@babel/core": "^7.1.2",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
     "enzyme": "^3.6.0",
