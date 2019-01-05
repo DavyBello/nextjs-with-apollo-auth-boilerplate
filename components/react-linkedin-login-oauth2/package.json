@@ -1,0 +1,55 @@
+{
+  "name": "react-linkedin-login-oauth2",
+  "version": "1.0.5",
+  "description": "React component for Linked In Log In feature using OAuth 2.0",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd",
+    "assets"
+  ],
+  "scripts": {
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "prepublishOnly": "npm run build",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server"
+  },
+  "dependencies": {
+    "enzyme": "^3.6.0",
+    "query-string": "~5.1.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "peerDependencies": {
+    "react": "16.x"
+  },
+  "devDependencies": {
+    "nwb": "0.23.x",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "author": "nvh95",
+  "homepage": "https://github.com/nvh95/react-linkedin-login-oauth2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvh95/react-linkedin-login-oauth2.git"
+  },
+  "bug": {
+    "url": "https://github.com/nvh95/react-linkedin-login-oauth2/issues"
+  },
+  "keywords": [
+    "react",
+    "linkedin",
+    "login",
+    "signin",
+    "oauth",
+    "oauth2",
+    "redirect"
+  ]
+}

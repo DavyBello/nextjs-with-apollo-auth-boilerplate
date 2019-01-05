@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { Query } from 'react-apollo'
 import { HOME_VIEWER_USER_QUERY } from '../../lib/graphql/queries'
 

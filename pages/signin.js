@@ -1,10 +1,11 @@
 import { Component } from 'react'
 import Link from 'next/link'
 
-import redirectIfUserLoggedIn from '../hocs/redirectIfUserLoggedIn';
+// import redirectIfUserLoggedIn from '../hocs/redirectIfUserLoggedIn';
 
 import UserSigninBox from '../components/Auth/UserSigninBox'
-import GoogleButton from '../components/Auth/Social/GoogleButton'
+// import GoogleButton from '../components/Auth/Social/GoogleButton'
+import LinkedInButton from '../components/Auth/Social/LinkedInButton'
 
 class Signin extends Component {
   render () {
@@ -14,12 +15,14 @@ class Signin extends Component {
         <UserSigninBox />
         <hr />
         Login With
-        <GoogleButton />
+        <LinkedInButton />
+        {/* <GoogleButton /> */}
         <hr />
         New? <Link prefetch href='/create-account'><a>Create account</a></Link>
       </>
     )
   }
-};
+}
 
-export default redirectIfUserLoggedIn(Signin)
+export default (Signin)
+// export default redirectIfUserLoggedIn(Signin)
