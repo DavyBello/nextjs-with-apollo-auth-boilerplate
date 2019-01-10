@@ -1,9 +1,10 @@
 import { Component } from 'react'
 import Link from 'next/link'
 
-import redirectIfUserLoggedIn from '../hocs/redirectIfUserLoggedIn';
+// import redirectIfUserLoggedIn from '../hocs/redirectIfUserLoggedIn';
 
 import UserRegisterBox from '../components/Auth/UserRegisterBox'
+import LinkedInButton from '../components/Auth/RegisterSocial/LinkedInButton'
 
 class CreateAccount extends Component {
   render () {
@@ -12,10 +13,14 @@ class CreateAccount extends Component {
         {/* UserRegisterBox handles all register logic. */}
         <UserRegisterBox />
         <hr />
+        Login With
+        <LinkedInButton />
+        <hr />
         Already have an account? <Link prefetch href='/signin'><a>Sign in</a></Link>
       </>
     )
   }
 };
 
-export default redirectIfUserLoggedIn(CreateAccount)
+export default CreateAccount
+// export default redirectIfUserLoggedIn(CreateAccount)

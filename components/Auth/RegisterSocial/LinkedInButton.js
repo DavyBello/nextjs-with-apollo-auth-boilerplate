@@ -1,6 +1,6 @@
 import { LinkedIn } from "../../react-linkedin-login-oauth2";
 import { Mutation, withApollo } from "react-apollo";
-import { LINKED_IN_AUTH_MUTATION } from "../../../lib/graphql/mutations";
+import { LINKED_IN_REGISTER_EMPLOYER_MUTATION } from "../../../lib/graphql/mutations";
 import storeToken from "../../../lib/auth/storeToken";
 import redirect from "../../../lib/auth/redirect";
 
@@ -15,8 +15,8 @@ const handleFailure = (error) => {
 const redirectUri = "http://localhost:3000/auth/linkedin"
 
 const LinkedInButton = ({ client }) => <Mutation
-  mutation={LINKED_IN_AUTH_MUTATION}
-  onCompleted={({ loginLinkedIn: { token } }) => {
+  mutation={LINKED_IN_REGISTER_EMPLOYER_MUTATION}
+  onCompleted={({ employerCreateAccountWithLinkedIn: { token } }) => {
     console.log('token');
     console.log(token);
     // Store the token in browser cookies
